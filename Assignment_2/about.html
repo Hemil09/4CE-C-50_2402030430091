@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>ConsultUs - Business Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: #fff;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .highlight {
+            color: #0099ff;
+            font-weight: bold;
+        }
+
+        /* Feature Box */
+        .feature-box {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 2rem;
+            margin: 1rem auto;
+            border-radius: 15px;
+            max-width: 90%;
+            position: relative;
+        }
+
+        .feature-box p {
+            margin-bottom: 1rem;
+        }
+
+        .feature-image {
+            border-radius: 15px;
+            width: 100%;
+            height: auto;
+            margin-bottom: -15rem;
+        }
+
+        /* Global Presence */
+        .global {
+            text-align: center;
+            /* padding: 3rem 1rem; */
+        }
+
+        .global h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .map-container {
+            max-width: 100%;
+            margin: 2rem auto;
+        }
+
+        .map-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 2rem 5%;
+        }
+
+        .mission h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .mission h2 .highlight {
+            color: #0099ff;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .mission-item {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .mission-title {
+            font-weight: bold;
+        }
+
+        .mission-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Commitment Section */
+        .commitment {
+            padding: 2rem 5%;
+        }
+
+        .commitment h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .commitment h2 .highlight {
+            color: #0099ff;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .team h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .team-member h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .dot.active {
+            background-color: #333;
+        }
+
+        /* Contact Form */
+        .contact {
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            margin-bottom: 2rem;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 2rem 5%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-right: 1.5rem;
+        }
+
+        .footer-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom p {
+            font-size: 0.8rem;
+        }
+
+        .social-icons {
+            display: flex;
+        }
+
+        .social-icons a {
+            margin-left: 1rem;
+            color: white;
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .mission-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .feature-box {
+                display: flex;
+                align-items: center;
+                text-align: left;
+            }
+
+            .feature-text {
+                flex: 1;
+                padding-right: 2rem;
+            }
+
+            .feature-image-container {
+                flex: 1;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .mission-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" style="text-decoration: none;color: black;">
+        <div class="logo">DIY</div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="#">Getting Started</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="ConsultUs.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>We're here to<br><span class="highlight">gurantee your success</span></h1>
+    </section>
+
+    <section class="feature-box">
+        <div class="feature-text">
+            <p style="font-size: 26px;">ConsultUs provides consulting services that help business owners and leaders build a more valuable business. We worked with their founder to build a professional, modern site that follows the StoryBrand framework to clearly communicates the value it adds to potential clients</p>
+        </div>
+    </section>
+    
+    <div class="" style="margin-top: -82px;position: relative;">
+        <img src="img/about.png" alt="Team working together" class="feature-image">
+    </div>
+
+    <section class="global">
+        <h2>We're here for you<br><span class="highlight">no matter where you are</span></h2>
+        <div class="map-container">
+            <img src="img/map.png" alt="Global map with location markers">
+        </div>
+    </section>
+
+    <section class="mission">
+        <h2>Our <span class="highlight">Mission</span></h2>
+        <div class="mission-grid">
+            <div class="mission-item">
+                <div class="mission-title">Unmatched service</div>
+                <div class="mission-desc">Support corporate clients and financial investors with their growth strategy and international development.</div>
+            </div>
+            <div class="mission-item">
+                <div class="mission-title">Specific</div>
+                <div class="mission-desc">ConsultUs core expertise lies in the ability to support our clients in their process of originating and executing commercial and investment strategies in specific markets.</div>
+            </div>
+            <div class="mission-item">
+                <div class="mission-title">Experience</div>
+                <div class="mission-desc">Experience in working with and assisting a wide range of clients from entrepreneurs to corporations to medium-sized businesses, from large corporate debt providers to mid-market private equity investors.</div>
+            </div>
+            <div class="mission-item">
+                <div class="mission-title">Technology</div>
+                <div class="mission-desc">The best combination of technology and people.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="commitment">
+        <h2>Our <span class="highlight">Commitment</span></h2>
+        <div class="mission-grid">
+            <div class="mission-item">
+                <div class="mission-title">Ethics</div>
+                <div class="mission-desc">Ethics for ConsultUs means ensuring our customers the confidentiality and prudence of the services they are provided. A client must be reassured by the fact that the service atmosphere is made-to-measure and will not be recycled for their competitors.</div>
+            </div>
+            <div class="mission-item">
+                <div class="mission-title">Quality</div>
+                <div class="mission-desc">ConsultUs is committed to ensuring that our advice and recommendations are based on the best combination of methods, information research, creativity and experience.</div>
+            </div>
+            <div class="mission-item">
+                <div class="mission-title">Continuity</div>
+                <div class="mission-desc">ConsultUs considers that the continuity of relations on the long term with its clients is the guarantee of the satisfaction of these and the quality of the services provided.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team">
+        <h2>Our Success Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="img/t1.png" alt="Team member">
+                <h3>Jenny Wilson</h3>
+            </div>
+            <div class="team-member">
+                <img src="img/t2.png" alt="Team member">
+                <h3>Eleanor Pena</h3>
+            </div>
+            <div class="team-member">
+                <img src="img/t3.png" alt="Team member">
+                <h3>Robert Fox</h3>
+            </div>
+            <div class="team-member">
+                <img src="img/t1.png" alt="Team member">
+                <h3>Ralph Edwards</h3>
+            </div>
+        </div>
+        <div class="slider-dots">
+            <span class="dot"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2 style="font-size: 40px;">Get in touch</h2>
+        <p>We'd love to hear from you. Please fill out this form.</p>
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Company Email">
+            </div>
+            <div class="form-group">
+                <input type="tel" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Title/Position">
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Message"></textarea>
+            </div>
+            <button type="submit">Connect with us</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">DIY</div>
+            <ul class="footer-links">
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="#">Getting Started</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="ConsultUs.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 DIY. All rights reserved.</p>
+            <div>
+                <span>Privacy Policy</span> | <span>Terms of Use</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

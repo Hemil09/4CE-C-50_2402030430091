@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino Bluetooth Speaker - DIY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #000;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 20px 0;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            color: #555;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            margin: 0 5px;
+            color: #999;
+        }
+
+        /* Main content */
+        main {
+            padding: 20px 0 40px;
+        }
+
+        .project-header {
+            margin-bottom: 30px;
+        }
+
+        .project-title {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .author-icon {
+            margin-right: 10px;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #eee;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+        }
+
+        /* Project image */
+        .project-image {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .project-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Project details */
+        .project-details {
+            margin-bottom: 30px;
+        }
+
+        .project-details h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .steps {
+            padding-left: 20px;
+        }
+
+        .steps li {
+            margin-bottom: 10px;
+        }
+
+        
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 40px 0 20px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 18px;
+}
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .footer-top {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .footer-links {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-nav {
+                margin-top: 20px;
+            }
+
+            .footer-nav ul {
+                margin-left: 0;
+                margin-right: 40px;
+                margin-bottom: 20px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom p {
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-title {
+                font-size: 28px;
+            }
+
+            .footer-bottom {
+                text-align: center;
+            }
+
+            .footer-bottom p {
+                margin-bottom: 15px;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">DIY</a>
+            <nav>
+                <ul>
+                    <li><a href="project.html">Project</a></li>
+                    <li><a href="#">Getting Started</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="ConsultUs.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <div class="container">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="#">Home</a> <span>›</span> <a href="#">Project</a> <span>›</span> Arduino Bluetooth Speaker
+            </div>
+
+            <!-- Project header -->
+            <div class="project-header">
+                <h1 class="project-title">Arduino Bluetooth Speaker</h1>
+                <div class="author">
+                    <span class="author-icon">👤</span> Henrik Annemark
+                </div>
+            </div>
+
+            <!-- Project image -->
+            <div class="project-image">
+                <img src="img/img9.png" alt="Arduino Bluetooth Speaker Module with Speaker">
+            </div>
+
+            <!-- Project details -->
+            <div class="project-details">
+                <h3>Materials:</h3>
+                <p>Arduino, Bluetooth module (HC-05), speaker, amplifier.</p>
+                
+                <h3>Steps:</h3>
+                <ol class="steps">
+                    <li>Pair the Bluetooth module with an Arduino.</li>
+                    <li>Connect a small amplifier to the speaker.</li>
+                    <li>Write code for the Arduino to play sound through Bluetooth.</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-top">
+                    <div class="logo" style="color: white;">DIY</div>
+                    <ul class="footer-links">
+                        <li><a href="project.html">Project</a></li>
+                        <li><a href="#">Getting Started</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="ConsultUs.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom">
+                    <p>Copyright © 2025 DIY. All rights reserved</p>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+</body>
+</html>
